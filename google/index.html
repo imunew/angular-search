@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
+    <link rel="stylesheet" href="../css/main.css">
   </head>
   <body ng-controller="GoogleSearch">
     <div class="container">
@@ -24,9 +25,9 @@
     </div>
     <hr>
     <div class="container">
-      <div class="row" ng-repeat="result in results.responseData.results" ng-cloak>
+      <div class="row row-space" ng-repeat="result in results.responseData.results">
         <h4>
-          <a href="{{ result.url }}"><span ng-bind-html="result.title"></span></a>
+          <a ng-href="{{ result.url }}"><span ng-bind-html="result.title"></span></a>
         </h4>
         <p ng-bind-html="result.content"></p>
       </div>
