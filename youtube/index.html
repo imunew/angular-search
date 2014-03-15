@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja" ng-app>
+  <head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"></script>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>  </head>
+    <script type="text/javascript" src="controllers.js"></script>
+  <body ng-controller="YoutubeSearch">
+    <div class="container">
+      <div class="row">
+        <h2>Youtube Search</h2>
+      </div>
+      <div class="row">
+        <form class="form-inline" role="form" ng-submit="doSearch()">
+          <input type="search" class="search-query form-control" placeholder="Search" ng-model="query" />
+        </form>
+      </div>
+    </div>
+    <hr>
+    <div class="container">
+      <div class="row" ng-repeat="result in results.feed.entry">
+        <div>
+          <h4>{{ result.title.$t }}</h4>
+        </div>
+        <div class="col-md-2">
+          <a ng-href="{{ result.media$group.media$player[0].url }}">
+            <img ng-src="{{ result.media$group.media$thumbnail[1].url }}" alt="{{ result.media$group.media$title.$t }}" />
+          </a>
+        </div>
+        <div class="col-md-10">
+          {{ result.content.$t }}
+        </div>
+      </div>
+    </div>
+    <hr>
+    <br>
+  </body>
+</html>
