@@ -14,4 +14,8 @@ function YoutubeSearch($scope, $http) {
       $scope.results = data;
     });
   };
+  
+  $scope.query = "AngularJS";
+  $scope.doSearch();
+  
 }

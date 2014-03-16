@@ -15,4 +15,8 @@ app.controller('GoogleSearch', function($scope, $http) {
       $scope.results = data;
     });
   };
+  
+  $scope.query = "AngularJS";
+  $scope.doSearch();
+  
 });
